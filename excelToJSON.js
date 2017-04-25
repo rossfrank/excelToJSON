@@ -4,11 +4,13 @@ var fs = require('fs');
 //file to process
 var file = 'large_file.xlsx'
 
+//file to output
+var output = "test.txt"
 
 console.log("start")
 var result = run(file)
 console.log("done")
-fs.writeFile("test.txt", JSON.stringify(result), function(err) {
+fs.writeFile(output, JSON.stringify(result), function(err) {
     if(err) {
         return console.log(err);
     }
