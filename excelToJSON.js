@@ -7,14 +7,11 @@ var file = ''
 //file to output
 var output = "node_out.txt"
 
-console.log("start")
 var result = run(file)
-console.log("done")
 fs.writeFile(output, JSON.stringify(result), function(err) {
     if(err) {
         return console.log(err);
     }
-    console.log("The file was saved!");
 });
 
 function run(file){
@@ -60,7 +57,7 @@ function arrayPrint(file, excel) {
     jsonObj['csv'] = rowArrayToArray(csvRead(file))
   }
   else {
-    return "Not a CSV or Excel File"
+    console.log("Not a CSV or Excel File")
   }
   return jsonObj
 }
