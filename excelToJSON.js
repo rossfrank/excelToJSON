@@ -2,24 +2,21 @@ var xlsx = require('xlsx');
 var fs = require('fs');
 
 //file to process
-var file = 'large_file.xlsx'
+var file = ''
 
 //file to output
-var output = "test.txt"
+var output = "node_out.txt"
 
-console.log("start")
 var result = run(file)
-console.log("done")
 fs.writeFile(output, JSON.stringify(result), function(err) {
     if(err) {
         return console.log(err);
     }
-    console.log("The file was saved!");
 });
 
 function run(file){
   var json =  {}
-  json[file] = arrayPrint(file, (file.endsWith(".xls") || file.endsWith(".xlsx")))
+  json[file] = arrayPrint(file)
   return json
 }
 
@@ -45,19 +42,22 @@ return splitArray
 
 function arrayPrint(file, excel) {
   var jsonObj = {}
-  if(excel){
+  if(file.endsWith(".xls") || file.endsWith(".xlsx")){
     jsonObj['size'] = {}
     var workbook = xlsx.readFile(file)
     workbook.SheetNames.forEach(function(sheet_name) {
       var worksheet = workbook.Sheets[sheet_name]
       if(Object.keys(worksheet).length != 0){
-        jsonObj['size'][sheet_name] = worksheet["!ref"];
+        jsonObj['size'][sheet_name] = worksheet["!ref"]
       }
       jsonObj[sheet_name] = rowArrayToArray(excelsheetRead(workbook, sheet_name))
     })
   }
-  else{
+  else if (file.endsWith(".csv")){
     jsonObj['csv'] = rowArrayToArray(csvRead(file))
+  }
+  else {
+    console.log("Not a CSV or Excel File")
   }
   return jsonObj
 }

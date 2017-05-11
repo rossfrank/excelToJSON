@@ -1,13 +1,24 @@
 # excelToJSON
 Converts CSV or Excel Files to JSON
 
-## Run
+## Node
+### Install
 ```
-npm install xlsx
+npm install -g xlsx
 ```
-then
+### Run
 ```
 node excelToJSON.js
+```
+
+## Python
+### Install
+```
+pip install xlrd
+```
+### Run
+```
+python excelToJSON.py
 ```
 
 ### Output Format:
