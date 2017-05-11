@@ -2,7 +2,7 @@ var xlsx = require('xlsx');
 var fs = require('fs');
 
 //file to process
-var file = '73acb11627d6702e51c3bfa21a598e76b291a9f2823ff633a4f34f8444165a6a.xls'
+var file = ''
 
 //file to output
 var output = "test.txt"
