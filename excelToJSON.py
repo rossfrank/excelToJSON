@@ -1,8 +1,9 @@
 import xlrd
 import csv
+import json
 
 #input file
-input_file = 'large_file.xlsx'
+input_file = ''
 
 #output file
 output_file = 'python_out.txt'
@@ -20,7 +21,6 @@ result = {}
 result[input_file] = {}
 
 if input_file.endswith('.csv'):
-    import csv
     f = open(input_file, 'rb')
     csv_file = csv.reader(f)
     array = []
@@ -29,7 +29,6 @@ if input_file.endswith('.csv'):
     result[input_file]['csv'] = array
 
 elif input_file.endswith('.xls') or input_file.endswith('.xlsx'):
-    import xlrd
     book = xlrd.open_workbook(filename=input_file)
     sheets = book.sheet_names()
     result[input_file]['size'] = {}
@@ -74,4 +73,5 @@ else:
     import sys
     sys.exit()
 
-#print result
+with open(output_file, 'w') as outfile:
+    json.dump(result, outfile)

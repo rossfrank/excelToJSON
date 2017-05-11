@@ -5,7 +5,7 @@ var fs = require('fs');
 var file = ''
 
 //file to output
-var output = "test.txt"
+var output = "node_out.txt"
 
 console.log("start")
 var result = run(file)
