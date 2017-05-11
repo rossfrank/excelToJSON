@@ -2,27 +2,27 @@
 Converts CSV or Excel Files to JSON
 
 ## Node
-### Install
+#### Install
 ```
 npm install -g xlsx
 ```
-### Run
+#### Run
 ```
 node excelToJSON.js
 ```
 
 ## Python
-### Install
+#### Install
 ```
 pip install xlrd
 ```
-### Run
+#### Run
 ```
 python excelToJSON.py
 ```
 
-### Output Format:
-For Excel:
+## Output Format:
+#### Excel:
 ```
 {FileName:
    {size:
@@ -30,7 +30,7 @@ For Excel:
     sheet1: 2D Array of Data,
     sheet2: 2D Array of Data}}   
 ```
-For CSV:
+#### CSV:
 ```
 {FileName:
    {csv: 2D Array of Data}}
